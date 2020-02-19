@@ -95,8 +95,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_UseAutoMass: 1
+  m_Mass: 0.91440004
   m_LinearDrag: 2
   m_AngularDrag: 5
   m_GravityScale: 0
@@ -117,10 +117,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f57f53711380846b62626d283c5b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 5
-  moveSpeed: 0.001
-  rigidbody: {fileID: 299108937575427174}
-  accelerate: Accelerate
+  moveSpeed: 10
+  torqueForce: 2
+  accelerate: Vertical
+  horizontal: Horizontal
 --- !u!61 &2416401747096687079
 BoxCollider2D:
   m_ObjectHideFlags: 0

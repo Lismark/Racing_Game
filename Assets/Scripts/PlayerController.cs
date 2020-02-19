@@ -19,13 +19,14 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Debug.Log(rigidbody.angularVelocity);
         currentSpeed = rigidbody.velocity.magnitude;
         Moveing();
     }
 
     private void Update()
     {
+        if (currentSpeed < 0.01f)
+            rigidbody.angularVelocity = 0;
     }
     private void Moveing()
     {
@@ -33,6 +34,6 @@ public class PlayerController : MonoBehaviour
         {
             rigidbody.AddForce(transform.up * moveSpeed);
         }
-            rigidbody.AddTorque(Input.GetAxis(horizontal) * -torqueForce);
+            rigidbody.AddTorque((Input.GetAxis(horizontal) * -torqueForce) * (currentSpeed+0.1f));
     }
 }

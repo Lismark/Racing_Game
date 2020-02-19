@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  torqueForce: 2
+  torqueForce: 0.5
   accelerate: Vertical
   horizontal: Horizontal
 --- !u!61 &2416401747096687079

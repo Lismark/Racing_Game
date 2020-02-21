@@ -7,10 +7,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float torqueForce;
     private Rigidbody2D rigidbody;
-    [SerializeField] private string accelerate;
-    [SerializeField] private string horizontal;
+    private string accelerate = "Vertical";
+    private string horizontal = "Horizontal";
     private float currentSpeed;
-    private Quaternion lastRotation;
+    public const float minValue = 0.1f;
     
     private void Start()
     {
@@ -21,19 +21,23 @@ public class PlayerController : MonoBehaviour
     {
         currentSpeed = rigidbody.velocity.magnitude;
         Moveing();
+
     }
 
     private void Update()
     {
-        if (currentSpeed < 0.01f)
+        if (currentSpeed < minValue)
+        { 
             rigidbody.angularVelocity = 0;
+        }
     }
     private void Moveing()
     {
-        if (Input.GetButton(accelerate))
-        {
+        if (Input.GetAxis(accelerate) > 0)
             rigidbody.AddForce(transform.up * moveSpeed);
-        }
-            rigidbody.AddTorque((Input.GetAxis(horizontal) * -torqueForce) * (currentSpeed+0.1f));
+        if (Input.GetAxis(accelerate) < 0)
+            rigidbody.AddForce(transform.up * -moveSpeed / 2);
+
+        rigidbody.AddTorque((Input.GetAxis(horizontal) * -torqueForce) * (currentSpeed+minValue));
     }
 }

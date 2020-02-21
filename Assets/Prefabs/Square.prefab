@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1520939073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1520939074}
+  m_Layer: 0
+  m_Name: fireingSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1520939074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520939073}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.86, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7738359326438745345}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1803329792475240570
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,6 +43,7 @@ GameObject:
   - component: {fileID: 299108937575427174}
   - component: {fileID: 853095740}
   - component: {fileID: 2416401747096687079}
+  - component: {fileID: 1468033327752062382}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -30,7 +61,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.1066704, y: -0.71236473, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1520939074}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -96,9 +128,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.91440004
-  m_LinearDrag: 2
-  m_AngularDrag: 5
+  m_Mass: 0.68309945
+  m_LinearDrag: 3
+  m_AngularDrag: 7
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -117,10 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f57f53711380846b62626d283c5b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 12
   torqueForce: 0.5
-  accelerate: Vertical
-  horizontal: Horizontal
 --- !u!61 &2416401747096687079
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -134,7 +164,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.031562, y: 0.03342569}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -145,5 +175,22 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.72, y: 1.27}
+  m_Size: {x: 0.5677598, y: 1.2031486}
   m_EdgeRadius: 0
+--- !u!114 &1468033327752062382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803329792475240570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9f646b7e750134999d62601cc2a749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 1520939073}
+  bulletPrefab: {fileID: 5762597282430318517, guid: d988dcd343284bd498bd4415551adfc1,
+    type: 3}
+  bulletForce: 15
+  bulletLifeTime: 2
